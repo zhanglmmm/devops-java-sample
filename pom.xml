@@ -22,9 +22,10 @@
 
   <!-- Spring Boot 启动父依赖 -->
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.4.1.BUILD-SNAPSHOT</version>
+         <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+        <relativePath/>
   </parent>
 
     <repositories>
@@ -57,7 +58,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
         </dependency>
     </dependencies>
 
