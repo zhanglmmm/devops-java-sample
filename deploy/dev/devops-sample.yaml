@@ -41,6 +41,9 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
+          volumeMounts:
+          - name: nfs
+            mountPath: /m2
           resources:
             limits:
               cpu: 300m
@@ -53,3 +56,8 @@ spec:
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
+      volumes:
+      - name: nfs
+        nfs:
+          path: /data/zlm/m2
+          server: 192.168.78.128

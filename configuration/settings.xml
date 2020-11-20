@@ -4,7 +4,7 @@
     <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
   </pluginGroups>
 
-  <localRepository>${PWD}/artifacts/m2</localRepository>
+  <localRepository>/m2</localRepository>
 
   <profiles>
     <!-- Give access to Jenkins plugins -->
@@ -14,6 +14,17 @@
         <activeByDefault>true</activeByDefault> <!-- change this to false, if you don't like to have it on per default -->
       </activation>
       <repositories>
+		  <repository>
+            <id>aly</id>
+            <name>aly</name>
+            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
         <repository>
           <id>repo.jenkins-ci.org</id>
           <url>https://repo.jenkins-ci.org/public/</url>
