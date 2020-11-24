@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: kubesphere-sample-dev
+   labels:
+     name: kubesphere-sample-dev
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:

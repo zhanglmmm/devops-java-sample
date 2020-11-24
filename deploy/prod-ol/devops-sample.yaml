@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: kubesphere-sample-prod
+   labels:
+     name: kubesphere-sample-prod
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -9,7 +16,7 @@ metadata:
   namespace: kubesphere-sample-prod
 spec:
   progressDeadlineSeconds: 600
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: kubesphere
