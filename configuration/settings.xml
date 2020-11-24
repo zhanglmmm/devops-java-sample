@@ -4,7 +4,7 @@
     <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
   </pluginGroups>
 
-  <localRepository>/m2</localRepository>
+  <localRepository>/root/.m2</localRepository>
 
   <profiles>
     <!-- Give access to Jenkins plugins -->
