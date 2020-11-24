@@ -66,4 +66,4 @@ spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       imagePullSecrets:
-       - name: registry-aly
+      - name: registry-aly
