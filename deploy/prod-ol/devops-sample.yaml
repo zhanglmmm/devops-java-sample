@@ -15,11 +15,6 @@ spec:
       app: kubesphere
       component: ks-sample-pro
       tier: backend
-  strategy:
-    rollingUpdate:
-      maxSurge: 100%
-      maxUnavailable: 100%
-    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -34,17 +29,15 @@ spec:
             - name: CACHE_PUBLIC_EXPIRATION
               value: 3d
           image: $REGISTRY/$DOCKERHUB_NAMESPACE/$APP_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER
-          livenessProbe:
+          readinessProbe:
             httpGet:
               path: /
               port: 8080
-            initialDelaySeconds: 30
             timeoutSeconds: 10
-            failureThreshold: 5
-            successThreshold: 1
+            failureThreshold: 30
             periodSeconds: 5
           imagePullPolicy: Always
-          name: ks-simple-pro
+          name: ks-sample-pro
           ports:
             - containerPort: 8080
               protocol: TCP
