@@ -1,2 +1,7 @@
-# devops-java-sample
-A Java sample for devops on kubesphere
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: work001
+   labels:
+     name: work001
+---
