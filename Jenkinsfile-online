@@ -27,6 +27,9 @@ pipeline {
         }
 
         stage ('unit test') {
+        	when{
+             branch 'master-test'
+           }
             steps {
                 container ('maven') {
                     sh 'mvn clean -gs `pwd`/configuration/settings.xml test'
@@ -64,7 +67,7 @@ pipeline {
             branch 'master'
           }
           steps {
-            input(id: 'deploy-to-dev', message: 'deploy to production?', submitter: 'zlm')
+            input(id: 'deploy-to-dev', message: 'deploy to production?', submitter: 'admin')
             kubernetesDeploy(configs: 'deploy/dev-ol/**', enableConfigSubstitution: true, kubeconfigId: "$KUBECONFIG_CREDENTIAL_ID")
           }
         }
@@ -93,7 +96,7 @@ pipeline {
             branch 'master'
           }
           steps {
-            input(id: 'deploy-to-production', message: 'deploy to production?', submitter: 'zlm')
+            input(id: 'deploy-to-production', message: 'deploy to production?', submitter: 'admin')
             kubernetesDeploy(configs: 'deploy/prod-ol/**', enableConfigSubstitution: true, kubeconfigId: "$KUBECONFIG_CREDENTIAL_ID")
           }
         }
